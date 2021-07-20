@@ -1,0 +1,107 @@
+<%layout('../layout')%>
+
+<div id="page-wrapper" style="margin-left:20px;margin-right:20px">
+    <div class="row">
+        <div class="col-lg-12">
+            <h1 class="page-header">
+                <%=channelName?channelName:channelID%>
+            </h1>
+        </div>
+        <!-- /.col-lg-12 -->
+    </div>
+
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <h3>Search</h3>
+                    <form onkeypress="return event.keyCode != 13;">
+                        <div class="form-group radio-group">
+                            <label class="radio-inline radio-label">
+                                <input type="radio" name="select-search-type" id="select-search-type-1" value="1"
+                                    checked> Transaction ID
+                            </label>
+                            <label class="radio-inline radio-label">
+                                <input type="radio" name="select-search-type" id="select-search-type-2" value="2">
+                                Object ID
+                            </label>
+                        </div>
+                        <div class="flex-container no-spacing-lr">
+                            <div class="search-item-big"><input type="text" id="text-object-search" class="form-control" placeholder="ID..."></div>
+                            <div class="search-item-small"><button id="btn-search" type='button' onclick="search()" class="btn btn-default"><i class="fa fa-search"></i></button></div>
+                        </div>
+                    </form>
+                    <div class="table-responsive search-result" id="search-info-container" style="display: none;">
+                        <table class="table table-bordered table-striped">
+                            <tbody id="search-info">
+
+                            </tbody>
+                        </table>
+                    </div>
+                    <div id="object-info-container" style="width:100%;display:none;" class="search-result">
+                        <div id="object-info">
+                        </div>
+                    </div>
+                    <div id="error-div" class="alert alert-danger error-alert" style="display: none;"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /.col-lg-12 -->
+
+    <!-- /.row -->
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <h3>Channel Information</h3>
+                    <div class="table-responsive">
+                        <table class="table table-bordered table-striped">
+                            <tbody id="info">
+
+                            </tbody>
+                        </table>
+                    </div>
+                    <div id="error-channel-div" class="alert alert-danger" style="display: none;"></div>
+                </div>
+            </div>
+        </div>
+        <!-- /.col-lg-12 -->
+    </div>
+
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <h3>Latest Blocks</h3>
+                    <div id="block-info-container" style="display: none;">
+                        <div id="block-info" class="container">
+
+                        </div>
+                    </div>
+                    <div id="block-error-div" class="alert alert-danger" style="display: none;"></div>
+                </div>
+            </div>
+        </div>
+        <!-- /.col-lg-12 -->
+    </div>
+
+</div>
+<!-- /#page-wrapper -->
+<% if (channelID) { %>
+<script>
+    const channelID = '<%= channelID %>';            
+</script>
+<% } %>
+<% if (chaincode) { %>
+<script>
+    const chaincode = '<%= chaincode %>';            
+</script>
+<% } else { %>
+<script>
+    const chaincode = null;            
+</script>
+<% } %>
+
+<script src="/js/channel_functions.js"></script>
+<script src="/js/index.js"></script>

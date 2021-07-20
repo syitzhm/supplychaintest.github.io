@@ -1,0 +1,68 @@
+<%layout('../layout')%>
+<div id="page-wrapper" style="margin-left:0">
+    <div class="row">
+        <div class="col-lg-12">
+            <h1 class="page-header">Channels</h1>
+        </div>
+        <!-- /.col-lg-12 -->
+    </div>
+    <!-- /.row -->
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <h3>Channels in network</h3>
+                    <div class="table-responsive">
+                        <table class="table table-bordered table-striped">
+                            <thead>
+                                <tr>
+                                    <th></th>
+                                    <th>
+                                        ID
+                                    </th>
+                                    <th>
+                                        Actions
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody id="tb">
+
+                            </tbody>
+                        </table>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <!-- /.col-lg-12 -->
+    </div>
+
+
+</div>
+<!-- /#page-wrapper -->
+
+<script>
+    $(document).ready(function () {
+        getChannels();
+    });
+
+    function getChannels() {
+        $.get("/api/v1/insight/org/org1",
+            {},
+            function (result) {
+                var tb = $('#tb');
+                tb.html("");
+                $.each(result.channels, function (index, channel) {
+                    let id = channel.channel_id;
+                    let html = `<tr>
+                        <td>${index + 1}</td>
+                        <td>${id}</td>
+                        <td>
+                            <a href='/channel/${id}' type='button' class='btn btn-default'>View detail</button>
+                        </td>
+                        </tr>`;
+                    tb.append(html);
+                })
+            })
+    }
+</script>

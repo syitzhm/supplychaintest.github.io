@@ -1,0 +1,77 @@
+.navbar-header {
+  padding: 10px 20px;
+  font-weight: bold;
+  font-size: 16pt;
+  color: #777777;
+}
+
+.navbar{
+  min-height: 70px !important;
+}
+
+.show-grid {
+
+}
+
+.grid-item {
+  border-radius: 8px;
+  border: 1px solid grey;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  margin-top: 10px !important;
+  margin-bottom: 10px !important;
+}
+
+/* input[type='radio'] { transform: scale(1.2); } */
+
+.radio-label {
+  font-size: 13pt;
+  margin-left: 20px !important;
+}
+
+.radio-group {
+  margin-top: 10px !important;
+  margin-bottom: 10px !important;
+}
+
+.search-result {
+  margin-top:20px;
+}
+
+.error-alert {
+  margin-top:20px;
+}
+
+.td-left {
+  min-width:120px;
+}
+
+.no-spacing-lr {
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+
+.flex-container {
+  display: flex;
+  flex-direction: row;
+}
+
+.search-item-big {
+  flex-basis: 90%;
+}
+
+.search-item-small {
+  flex-basis: 10%;
+  padding-left: 20px;
+}
+
+#btn-search {
+  width: 100%;
+}
+
+#siteseal {
+  position: fixed;
+  bottom: 0;
+}
